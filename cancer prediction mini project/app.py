@@ -19,7 +19,7 @@ def predict_placement():
     result = model.predict(np.array([cgpa,iq,profile_score]).reshape(1,3))
 
     if result[0] == 1:
-        result = 'placed'
+        result = 'plac'
     else:
         result = 'not placed'
 
