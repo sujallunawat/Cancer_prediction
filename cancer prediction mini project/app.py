@@ -11,15 +11,22 @@ def index():
 
 @app.route('/predictor',methods=['POST'])
 def predict_placement():
-    cgpa = float(request.form.get('cgpa'))
-    iq = int(request.form.get('iq'))
-    profile_score = int(request.form.get('ps'))
+    Clump = float(request.form.get('Clump'))
+    UnifSize = int(request.form.get('UnifSize'))
+    Unifshape = int(request.form.get('Unifshape'))
+    MargAdh = int(request.form.get('MargAdh'))
+    SingEpiSize = int(request.form.get('SingEpiSize'))
+    BareNuc = int(request.form.get('BareNuc'))
+    BlandChrom = int(request.form.get('BlandChrom'))
+    NormNucl = int(request.form.get('NormNucl'))
+    Mit = int(request.form.get('Mit'))
+    
 
     # prediction
-    result = model.predict(np.array([cgpa,iq,profile_score]).reshape(1,3))
+    result = model.predict(np.array([Clump,UnifSize,Unifshape,MargAdh,SingEpiSize,BareNuc,BlandChrom,NormNucl,Mit]).reshape(1,9))
 
-    if result[0] == 1:
-        result = 'plac'
+    if result[0] == 2:
+        result = 'placed'
     else:
         result = 'not placed'
 
