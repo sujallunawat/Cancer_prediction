@@ -4,43 +4,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    
+    <script>
+        function valid() {
+            var a = parseInt(document.getElementsByClassName("input")[0].value);
+    
+            if (a > 10) {
+                alert("Invalid input. Range is 1 to 10.");
+                return false; // prevent form submission
+            }
+            return true; // allow form submission
+        }
+    </script>
 </head>
 <body>
-    <header>
-        <h2>Student placemnt predictor</h2>
-    </header>
-    <main >
-        <form method="post" action="/predictor">
-        <label>Clump</label><br>
-        <input type="text" , name="Clump"><br>
+    <div class="container">
+        <header class="header">
+            <h2 class="header-text">Cancer predictor</h2>
+        </header>
+        <main class="main-container">
+            <form method="post" action="/predictor" class="form" onsubmit="return valid()" >
+          
+                <div class="text-field">
+                    <label>Clump</label>
+                    <p class="description"> - Thickness of cell clumps.   -Range(1-10)</p>
 
-        <label>UnifSize</label><br>
-        <input type="text" , name="UnifSize"><br> 
+                    <br>
+                    <input type="text" , name="Clump" class="input"><br>
+                </div>
+           
+            <div class="text-field">
+                <label>UnifSize</label>
+                <p class="description">- Uniformity of cell size.   -Range(1-10).</p><br>
+                <input type="text" , name="UnifSize"  class="input" ><br> 
+            </div>
+           
+                
+            <div class="text-field">
+            <label>Unifshape</label>
+            <p class="description">- Uniformity of cell shape.   -Range(1-10)</p><br>
+            <input type="text" , name="Unifshape"  class="input" ><br>
+            </div>
+             
+    
+            <div class="text-field">
+                <label>MargAdh</label>
+                <p class="description">-  Marginal adhesion, which  indicate how strongly cells adhere to each other at the edges.   -Range(1-10)
+                </p>
+                <br>
+            <input type="text" , name="MargAdh"  class="input" ><br>
+            </div>
+            
+            
+            <div class="text-field">
+                <label>SingEpiSize</label>
+                <p class="description">- Size of single epithelial cells.   -Range(1-10)</p>
+                <br>
+                <input type="text" , name="SingEpiSize"   class="input"><br> 
+            </div>
+          
+            
+            <div class="text-field">
+            <label>BareNuc</label>
+            <p class="description">- : Presence of bare nuclei.   -Range(1-10)</p>
+            <br>
+            <input type="text" , name="BareNuc"  class="input" ><br> 
+            </div>
+            
+                
+            <div class="text-field">
+                <label>BlandChrom</label>
+                <p class="description">- Bland chromatin, referring to the appearance of cell nuclei.   -Range(1-10)
+                <br>
+                <input type="text" , name="BlandChrom"  class="input" ><br>
+            </div>
+            
+                
+            <div class="text-field">
+            <label>NormNucl</label>
+            <p class="description">- This refer to the clustering tendency of cells.   -Range(1-10)</p>
+            <br>
+            <input type="text" , name="NormNucl"  class="input" ><br> 
+            
+            </div>
+            
+            <div class="text-field">
+                <label>Mit</label>
+                <p class="description">- Mitoses, the process of cell division.   -Range(1-10)</p>
+                <br>
+                <input type="text" , name="Mit"  class="input" ><br> 
+            </div>
 
-        <label>Unifshape</label><br>
-        <input type="text" , name="Unifshape"><br> 
-
-        <label>MargAdh</label><br>
-        <input type="text" , name="MargAdh"><br>
-        
-        <label>SingEpiSize</label><br>
-        <input type="text" , name="SingEpiSize"><br> 
-
-        <label>BareNuc</label><br>
-        <input type="text" , name="BareNuc"><br> 
-
-        <label>BlandChrom</label><br>
-        <input type="text" , name="BlandChrom"><br> 
-
-        <label>NormNucl</label><br>
-        <input type="text" , name="NormNucl"><br> 
-
-        <label>Mit</label><br>
-        <input type="text" , name="Mit"><br>  
-
-        <input type="submit" , value="predict"><br>     
-        </form>
-    </main>
-
+            <div class="text-field">
+                <input type="submit" , value="predict" class="button"><br> 
+            </div>
+                
+            </form>
+        </main>
+    </div>
 </body>
 </html>

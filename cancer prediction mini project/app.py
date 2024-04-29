@@ -26,9 +26,9 @@ def predict_placement():
     result = model.predict(np.array([Clump,UnifSize,Unifshape,MargAdh,SingEpiSize,BareNuc,BlandChrom,NormNucl,Mit]).reshape(1,9))
 
     if result[0] == 2:
-        result = 'placed'
+        result = 'Cancer'
     else:
-        result = 'not placed'
+        result = 'No Cancer'
 
     return str(result)
 
